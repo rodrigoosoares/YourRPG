@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Your RPG</string>
+    <!--Tela de criação do personagem-->
+    <string name="criacao_personagem_titulo">Criando seu personagem</string>
+    <string name="proxima_etapa">Próxima Etapa</string>
+    <string name="iniciar_aventura">Iniciar Aventura</string>
+    <string name="ok">Ok</string>
+</resources>

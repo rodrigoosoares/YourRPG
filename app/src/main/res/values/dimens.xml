@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_text">20sp</dimen>
+    <dimen name="margin10">10px</dimen>
+    <dimen name="margin20">20px</dimen>
+    <dimen name="margin30">30px</dimen>
+    <dimen name="padding10">10px</dimen>
+    <dimen name="padding20">20px</dimen>
+    <dimen name="padding30">30px</dimen>
+</resources>
