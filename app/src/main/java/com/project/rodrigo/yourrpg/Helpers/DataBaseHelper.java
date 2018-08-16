@@ -1,4 +1,4 @@
-package com.project.rodrigo.yourrpg;
+package com.project.rodrigo.yourrpg.Helpers;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

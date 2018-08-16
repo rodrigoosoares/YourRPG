@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CriarPersonagemView"></activity>
+        <activity android:name=".Views.CriarPersonagemView" />
+        <activity android:name=".Views.TutorialView"></activity>
     </application>
 
 </manifest>
