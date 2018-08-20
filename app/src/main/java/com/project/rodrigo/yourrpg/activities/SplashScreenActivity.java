@@ -7,26 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.project.rodrigo.yourrpg.R;
+import com.project.rodrigo.yourrpg.presenters.SplashScreenPresenter;
 
 public class SplashScreenActivity extends AppCompatActivity {
+
+    private SplashScreenPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen_view);
-        if(getSupportActionBar() != null)
-            getSupportActionBar().hide();
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, CriarPersonagemActivity.class));
-            }
-        },2000);
+        mPresenter = new SplashScreenPresenter(this,this);
+        mPresenter.createSplashScreen();
     }
 }
