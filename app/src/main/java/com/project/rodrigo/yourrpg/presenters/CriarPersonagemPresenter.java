@@ -2,6 +2,7 @@ package com.project.rodrigo.yourrpg.presenters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,6 +30,7 @@ public class CriarPersonagemPresenter {
 
     private CriarPersonagemActivity activity;
     private Context context;
+    private AlertDialog.Builder dialog_builder;
 
     public CriarPersonagemPresenter(Context context) {
         this.context = context;
@@ -40,13 +42,13 @@ public class CriarPersonagemPresenter {
 
     public void createUserObject(String nome, String classe, Bitmap imageDoJogador){
         if (nome.equals("") || classe.equals("")){
-            AlertDialog.Builder dialog_builder = new AlertDialog.Builder(context);
+            dialog_builder = new AlertDialog.Builder(context);
             if (nome.equals("")) {
-                dialog_builder.setMessage("Defina seu nome aventureiro!")
+                dialog_builder.setMessage(R.string.escolha_nome)
                         .setPositiveButton(R.string.ok, null);
 
             }else{
-                dialog_builder.setMessage("Defina sua classe aventureiro!")
+                dialog_builder.setMessage(R.string.escolha_classe)
                         .setPositiveButton(R.string.ok, null);
             }
             dialog_builder.create();
@@ -74,7 +76,7 @@ public class CriarPersonagemPresenter {
             Log.i("Error",e.toString());
         }
     }
-    public void setPhotoReturns(int resultCode, Intent data, ImageButton image){
+    public void setPhoto(int resultCode, Intent data, ImageButton image){
         if (resultCode == Activity.RESULT_OK) {
             try {
                 final Uri imageUri = data.getData();
@@ -83,10 +85,16 @@ public class CriarPersonagemPresenter {
                 image.setImageBitmap(selectedImage);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                Toast.makeText(activity, "Something went wrong", Toast.LENGTH_LONG).show();
+                dialog_builder = new AlertDialog.Builder(context);
+                dialog_builder.setMessage(R.string.algo_deu_erro)
+                        .setNegativeButton(R.string.ok, null);
+                //Toast.makeText(activity, R.string.algo_deu_erro, Toast.LENGTH_LONG).show();
             }
         }else {
-            Toast.makeText(activity, "You haven't picked Image",Toast.LENGTH_LONG).show();
+            dialog_builder = new AlertDialog.Builder(context);
+            dialog_builder.setMessage(R.string.foto_nao_selecionada)
+                    .setNegativeButton(R.string.ok, null);
+            //Toast.makeText(activity, R.string.foto_nao_selecionada,Toast.LENGTH_LONG).show();
         }
     }
 }

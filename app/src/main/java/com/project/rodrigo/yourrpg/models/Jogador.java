@@ -68,7 +68,5 @@ public class Jogador {
         return imagemDoJogador;
     }
 
-    public void setImagemDoJogador(Bitmap imagemDoJogador) {
-        this.imagemDoJogador = imagemDoJogador;
-    }
+    public void setImagemDoJogador(Bitmap imagemDoJogador) {this.imagemDoJogador = imagemDoJogador; }
 }
