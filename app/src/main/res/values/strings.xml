@@ -6,4 +6,10 @@
     <string name="iniciar_aventura">Iniciar Aventura</string>
     <string name="ok">Ok</string>
     <!--Slides do tutorial-->
+    <string name="slide1_header">Header 1</string>
+    <string name="slide2_header">Header 2</string>
+    <string name="slide3_header">Header 3</string>
+    <string name="slide1_content">Content 1</string>
+    <string name="slide2_content">Content 2</string>
+    <string name="slide3_content">Content 3</string>
 </resources>

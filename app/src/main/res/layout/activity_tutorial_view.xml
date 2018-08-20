@@ -4,6 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.TutorialView">
+    tools:context=".activities.TutorialActivity"
+    android:fitsSystemWindows="true">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpTutorialPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/llTutorialDots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dots"
+            android:textColor="#fff"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnTutorialSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Pular"
+        android:background="@android:color/transparent"/>
+    <Button
+        android:id="@+id/btnTutorialFinish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Terminar"
+        android:background="@android:color/transparent"
+        android:enabled="false"
+        android:visibility="invisible"/>
 </RelativeLayout>

@@ -1,9 +1,6 @@
-package com.project.rodrigo.yourrpg.Helpers;
+package com.project.rodrigo.yourrpg.helpers;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import com.project.rodrigo.yourrpg.Tabelas.*;
+
 
 /*public class DataBaseHelper extends SQLiteOpenHelper {
 
