@@ -28,6 +28,10 @@ public class CriarPersonagemActivity extends AppCompatActivity {
     private EditText etUserName;
     private EditText etUserClass;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
