@@ -24,6 +24,7 @@ import java.io.InputStream;
 
 /**
  * Presenter que contem todos os métodos da view CriarPersonagemActivity
+ * @author Rodrigo de Oliveira Soares
  */
 public class CriarPersonagemPresenter {
 
@@ -40,6 +41,13 @@ public class CriarPersonagemPresenter {
         this.activity = activity;
     }
 
+    /**
+     * Método para criar o objeto do tipo Jogador para salvar nas Prefs
+     * @param nome String - String contendo o nome do jogador
+     * @param classe String - String contendo a classe do jogador
+     * @param imageDoJogador Bitmap - Bitmap contendo a imagem do jogador
+     * @author Rodrigo de Oliveira Soaress
+     */
     public void createUserObject(String nome, String classe, Bitmap imageDoJogador){
         if (nome.equals("") || classe.equals("")){
             dialog_builder = new AlertDialog.Builder(context);
@@ -67,6 +75,10 @@ public class CriarPersonagemPresenter {
         }
     }
 
+    /**
+     * Método que permite que o usuário escolha uma imagem da galeria
+     * @author Rodrigo de Oliveira Soares
+     */
     public void pickPhoto(){
         try {
             Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
@@ -76,7 +88,15 @@ public class CriarPersonagemPresenter {
             Log.i("Error",e.toString());
         }
     }
-    public void setPhoto(int resultCode, Intent data, ImageButton image){
+
+    /**
+     * Método que coloca a imagem recebida em uma ImageView
+     * @param resultCode int - Código do resultado recebido do método onActivityResult caso o usuário tenha escolhido uma imagem
+     * @param data Intent - Intent recebido do método onActivityResult
+     * @param image ImageView - ImageView a qual a imagem será salva
+     * @author Rodrigo de Oliveira Soares
+     */
+    public void setPhoto(int resultCode, Intent data, ImageView image){
         if (resultCode == Activity.RESULT_OK) {
             try {
                 final Uri imageUri = data.getData();

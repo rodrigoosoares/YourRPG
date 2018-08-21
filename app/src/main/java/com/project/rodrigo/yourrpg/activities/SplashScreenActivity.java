@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.project.rodrigo.yourrpg.R;
+import com.project.rodrigo.yourrpg.helpers.SharedPreferencesHelper;
 import com.project.rodrigo.yourrpg.presenters.SplashScreenPresenter;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -17,7 +18,9 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen_view);
+        //new SharedPreferencesHelper(this).clearUserPrefs();
         mPresenter = new SplashScreenPresenter(this,this);
         mPresenter.createSplashScreen();
+
     }
 }

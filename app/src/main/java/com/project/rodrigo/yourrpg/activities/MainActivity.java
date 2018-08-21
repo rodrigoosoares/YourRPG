@@ -12,18 +12,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.project.rodrigo.yourrpg.R;
+import com.project.rodrigo.yourrpg.helpers.SharedPreferencesHelper;
+import com.project.rodrigo.yourrpg.models.Jogador;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private TextView tvNomeJogador;
+    private TextView tvClasseJogador;
+    private ImageView ivImageJogador;
+    private ProgressBar pbAtualJogadorXp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Jogador jogadorPrefs = new SharedPreferencesHelper(this).getUserPrefs();
+        tvNomeJogador = findViewById(R.id.tvNomeJogador);
+        tvClasseJogador = findViewById(R.id.tvClasseJogador);
+        ivImageJogador = findViewById(R.id.ivImageJogador);
+        pbAtualJogadorXp = findViewById(R.id.pbAtualJogadorXp);
+
+        tvNomeJogador.setText(jogadorPrefs.getNome());
+        tvClasseJogador.setText(jogadorPrefs.getClasse());
+        ivImageJogador.setImageBitmap(jogadorPrefs.getImagemDoJogador());
+        pbAtualJogadorXp.setMax(jogadorPrefs.getProximoNivelXp());
+        pbAtualJogadorXp.setProgress(jogadorPrefs.getExperiencia());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

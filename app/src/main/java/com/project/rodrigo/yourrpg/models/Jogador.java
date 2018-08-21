@@ -1,8 +1,11 @@
 package com.project.rodrigo.yourrpg.models;
 
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
+
+import com.project.rodrigo.yourrpg.helpers.SharedPreferencesHelper;
 
 /**
  * Classe utilizada para armazenar os dados do jogador.
@@ -19,6 +22,13 @@ public class Jogador {
     public Jogador(String nome, String classe, int nivel, int experiencia, int proximoNivelXp, Bitmap imagemDoJogador) {
         this.nome = nome;
         this.classe = classe;
+        this.nivel = nivel;
+        this.experiencia = experiencia;
+        this.proximoNivelXp = proximoNivelXp;
+        this.imagemDoJogador = imagemDoJogador;
+    }
+
+    public Jogador(int nivel, int experiencia, int proximoNivelXp) {
         this.nivel = nivel;
         this.experiencia = experiencia;
         this.proximoNivelXp = proximoNivelXp;
@@ -69,4 +79,27 @@ public class Jogador {
     }
 
     public void setImagemDoJogador(Bitmap imagemDoJogador) {this.imagemDoJogador = imagemDoJogador; }
+
+    /**
+     * Método para verificar se o usuário subuiu de nível
+     * @param context Context - Contexto passado ao acionar o método
+     * @author Rodrigo de Oliveira Soares
+     */
+    public static void levelUp(Context context){
+        SharedPreferencesHelper sharedPreferences = new SharedPreferencesHelper(context);
+        Jogador jogador = sharedPreferences.getUserPrefs();
+        int nivelAtual = jogador.getNivel();
+        int xpAtual = jogador.getExperiencia();
+        int xpProx = jogador.getProximoNivelXp();
+        if(xpAtual == xpProx){
+            nivelAtual++;
+            xpAtual = 0;
+            xpProx = 2000; //Montar uma formula para subir de nível ou utilizar um array com todos as Xps.
+            jogador.setNivel(nivelAtual);
+            jogador.setExperiencia(xpAtual);
+            jogador.setProximoNivelXp(xpProx);
+            sharedPreferences.saveUserPrefsLevelUp(jogador);
+        }
+    }
+
 }

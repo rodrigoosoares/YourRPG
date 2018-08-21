@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.project.rodrigo.yourrpg.R;
 import com.project.rodrigo.yourrpg.presenters.CriarPersonagemPresenter;
@@ -17,7 +17,7 @@ public class CriarPersonagemActivity extends AppCompatActivity {
     private CriarPersonagemPresenter mPresenter;
 
     private Button btnSave;
-    private ImageButton ibPickPhoto;
+    private ImageView ibPickPhoto;
     private EditText etUserName;
     private EditText etUserClass;
 

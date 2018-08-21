@@ -7,7 +7,7 @@ import com.project.rodrigo.yourrpg.models.Jogador;
 
 /**
  * Classe que contem os métodos das operações das Shared Preferences
- * @autor Rodrigo de Oliveira Soares
+ * @author Rodrigo de Oliveira Soares
  */
 public class SharedPreferencesHelper {
 
@@ -39,6 +39,18 @@ public class SharedPreferencesHelper {
     }
 
     /**
+     * Método para atualizar as informações do jogador ao subir de nível
+     * @param jogador Jogador - Objeto do tipo Jogador contendo os dados para subir de nível
+     * @author Rodrigo d Oliveira Soares
+     */
+    public void saveUserPrefsLevelUp(Jogador jogador){
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        gson = new Gson();
+        String usuarioString = gson.toJson(jogador);
+        editor.putString(USER_KEY_WORD, usuarioString);
+        editor.apply();
+    }
+    /**
      * Método que recupera as informações da Pref do usuário
      * @return Jogador - Objeto do tipo Jogador contendo as informações do usuário
      * @author Rodrigo de Oliveira Soares
@@ -56,5 +68,11 @@ public class SharedPreferencesHelper {
      */
     public boolean getUserPreferencesStatus(){
         return sharedPrefs.getString(USER_KEY_WORD,null) == null;
+    }
+
+    public void clearUserPrefs(){
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.clear();
+        editor.apply();
     }
 }
