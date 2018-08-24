@@ -2,8 +2,6 @@ package com.project.rodrigo.yourrpg.models;
 
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.widget.ImageView;
 
 import com.project.rodrigo.yourrpg.helpers.SharedPreferencesHelper;
 
@@ -17,9 +15,9 @@ public class Jogador {
     private int nivel;
     private int experiencia;
     private int proximoNivelXp;
-    private Bitmap imagemDoJogador;
+    private String imagemDoJogador;
 
-    public Jogador(String nome, String classe, int nivel, int experiencia, int proximoNivelXp, Bitmap imagemDoJogador) {
+    public Jogador(String nome, String classe, int nivel, int experiencia, int proximoNivelXp, String imagemDoJogador) {
         this.nome = nome;
         this.classe = classe;
         this.nivel = nivel;
@@ -74,11 +72,11 @@ public class Jogador {
         this.proximoNivelXp = proximoNivelXp;
     }
 
-    public Bitmap getImagemDoJogador() {
+    public String getImagemDoJogador() {
         return imagemDoJogador;
     }
 
-    public void setImagemDoJogador(Bitmap imagemDoJogador) {this.imagemDoJogador = imagemDoJogador; }
+    public void setImagemDoJogador(String imagemDoJogador) {this.imagemDoJogador = imagemDoJogador; }
 
     /**
      * Método para verificar se o usuário subuiu de nível

@@ -2,6 +2,10 @@ package com.project.rodrigo.yourrpg.helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+
 import com.google.gson.Gson;
 import com.project.rodrigo.yourrpg.models.Jogador;
 
@@ -22,6 +26,22 @@ public class SharedPreferencesHelper {
 
     public SharedPreferencesHelper(Context context){
         sharedPrefs = context.getApplicationContext().getSharedPreferences(USER_PREF_NAME, Context.MODE_PRIVATE);
+    }
+
+    /**
+     * Método que converte uma string para seu Bitmap correspondente
+     * @param encodedString String - Bitmap codificado para uma string
+     * @return Bitmap imagem convertida para Bitmap
+     */
+    public static Bitmap StringToBitMap(String encodedString){
+        try {
+            byte [] encodeByte= Base64.decode(encodedString,Base64.DEFAULT);
+            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch(Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
 
     //Métodos referente a preferences do jogador
@@ -75,4 +95,5 @@ public class SharedPreferencesHelper {
         editor.clear();
         editor.apply();
     }
+
 }

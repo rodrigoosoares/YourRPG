@@ -17,7 +17,7 @@ public class CriarPersonagemActivity extends AppCompatActivity {
     private CriarPersonagemPresenter mPresenter;
 
     private Button btnSave;
-    private ImageView ibPickPhoto;
+    private ImageView ivPickPhoto;
     private EditText etUserName;
     private EditText etUserClass;
 
@@ -31,18 +31,18 @@ public class CriarPersonagemActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSaveUserPrefs);
         etUserName = findViewById(R.id.etUserName);
         etUserClass = findViewById(R.id.etUserClass);
-        ibPickPhoto = findViewById(R.id.ibPickPhoto);
+        ivPickPhoto = findViewById(R.id.ibPickPhoto);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.createUserObject(etUserName.getText().toString(),
                         etUserClass.getText().toString(),
-                        ((BitmapDrawable)ibPickPhoto.getDrawable()).getBitmap());
+                        mPresenter.BitMapToString(((BitmapDrawable) ivPickPhoto.getDrawable()).getBitmap()));
                 startActivity(new Intent(v.getContext(), MainActivity.class));
             }
         });
-        ibPickPhoto.setOnClickListener(new View.OnClickListener() {
+        ivPickPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.pickPhoto();
@@ -52,6 +52,6 @@ public class CriarPersonagemActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mPresenter.setPhoto(resultCode,data,ibPickPhoto);
+        mPresenter.setPhoto(resultCode,data, ivPickPhoto);
     }
 }

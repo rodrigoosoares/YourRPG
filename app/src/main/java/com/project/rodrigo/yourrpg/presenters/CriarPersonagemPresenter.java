@@ -2,22 +2,21 @@ package com.project.rodrigo.yourrpg.presenters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
+import android.util.Base64;
 import android.util.Log;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.project.rodrigo.yourrpg.R;
 import com.project.rodrigo.yourrpg.activities.CriarPersonagemActivity;
 import com.project.rodrigo.yourrpg.helpers.SharedPreferencesHelper;
 import com.project.rodrigo.yourrpg.models.Jogador;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
@@ -48,7 +47,7 @@ public class CriarPersonagemPresenter {
      * @param imageDoJogador Bitmap - Bitmap contendo a imagem do jogador
      * @author Rodrigo de Oliveira Soaress
      */
-    public void createUserObject(String nome, String classe, Bitmap imageDoJogador){
+    public void createUserObject(String nome, String classe, String imageDoJogador){
         if (nome.equals("") || classe.equals("")){
             dialog_builder = new AlertDialog.Builder(context);
             if (nome.equals("")) {
@@ -116,5 +115,12 @@ public class CriarPersonagemPresenter {
                     .setNegativeButton(R.string.ok, null);
             //Toast.makeText(activity, R.string.foto_nao_selecionada,Toast.LENGTH_LONG).show();
         }
+    }
+    public String BitMapToString(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b=baos.toByteArray();
+        String temp= Base64.encodeToString(b, Base64.DEFAULT);
+        return temp;
     }
 }

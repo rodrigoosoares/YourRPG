@@ -42,9 +42,20 @@
             <ProgressBar
                 android:id="@+id/pbAtualJogadorXp"
                 style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/tvClasseJogador"
+                android:layout_toRightOf="@id/ivImageJogador"
+                android:progress="50"
+                android:textAlignment="center"/>
+            <TextView
+                android:id="@+id/tvStatusXp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:indeterminate="true"/>
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/pbAtualJogadorXp"/>
+
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 

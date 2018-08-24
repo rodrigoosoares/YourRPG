@@ -1,34 +1,35 @@
 package com.project.rodrigo.yourrpg.activities;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.project.rodrigo.yourrpg.R;
 import com.project.rodrigo.yourrpg.helpers.SharedPreferencesHelper;
 import com.project.rodrigo.yourrpg.models.Jogador;
-
-import org.w3c.dom.Text;
+import com.project.rodrigo.yourrpg.presenters.MainPagePresenter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private TextView tvNomeJogador;
     private TextView tvClasseJogador;
+    private TextView tvStatusXp;
     private ImageView ivImageJogador;
     private ProgressBar pbAtualJogadorXp;
+    private MainPagePresenter mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,17 +37,16 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Jogador jogadorPrefs = new SharedPreferencesHelper(this).getUserPrefs();
+        mPresenter = new MainPagePresenter(this);
+
+
         tvNomeJogador = findViewById(R.id.tvNomeJogador);
         tvClasseJogador = findViewById(R.id.tvClasseJogador);
+        tvStatusXp = findViewById(R.id.tvStatusXp);
         ivImageJogador = findViewById(R.id.ivImageJogador);
         pbAtualJogadorXp = findViewById(R.id.pbAtualJogadorXp);
 
-        tvNomeJogador.setText(jogadorPrefs.getNome());
-        tvClasseJogador.setText(jogadorPrefs.getClasse());
-        ivImageJogador.setImageBitmap(jogadorPrefs.getImagemDoJogador());
-        pbAtualJogadorXp.setMax(jogadorPrefs.getProximoNivelXp());
-        pbAtualJogadorXp.setProgress(jogadorPrefs.getExperiencia());
+        mPresenter.createToolbarUser(tvNomeJogador,tvClasseJogador,tvStatusXp,ivImageJogador,pbAtualJogadorXp);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
