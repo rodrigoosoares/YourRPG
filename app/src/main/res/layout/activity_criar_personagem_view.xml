@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CriarPersonagemActivity">
+    tools:context=".activities.CriarPersonagemActivity"
+    android:background="@drawable/criar_personagem_background">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@android:color/transparent"
             android:padding="@dimen/padding30"
             android:layout_gravity="center"
             android:gravity="center"
@@ -30,8 +31,7 @@
                 android:id="@+id/ibPickPhoto"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:src="@drawable/ic_account_circle_black_24dp"
-                android:background="@android:color/transparent"/>
+                android:src="@mipmap/iv_criar_personagem_image"/>
             <EditText
                 android:id="@+id/etUserName"
                 android:layout_width="match_parent"

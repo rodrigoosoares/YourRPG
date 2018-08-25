@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.project.rodrigo.yourrpg.R;
 import com.project.rodrigo.yourrpg.activities.CriarPersonagemActivity;
+import com.project.rodrigo.yourrpg.activities.MainActivity;
 import com.project.rodrigo.yourrpg.helpers.SharedPreferencesHelper;
 import com.project.rodrigo.yourrpg.models.Jogador;
 
@@ -22,7 +23,7 @@ import java.io.InputStream;
 
 
 /**
- * Presenter que contem todos os métodos da view CriarPersonagemActivity
+ * Presenter que contém todos os métodos da view CriarPersonagemActivity
  * @author Rodrigo de Oliveira Soares
  */
 public class CriarPersonagemPresenter {
@@ -71,6 +72,7 @@ public class CriarPersonagemPresenter {
                     imageDoJogador
             );
            new SharedPreferencesHelper(context).saveUserPrefs(jogador);
+           context.startActivity(new Intent(context, MainActivity.class));
         }
     }
 

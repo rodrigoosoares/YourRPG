@@ -39,7 +39,6 @@ public class CriarPersonagemActivity extends AppCompatActivity {
                 mPresenter.createUserObject(etUserName.getText().toString(),
                         etUserClass.getText().toString(),
                         mPresenter.BitMapToString(((BitmapDrawable) ivPickPhoto.getDrawable()).getBitmap()));
-                startActivity(new Intent(v.getContext(), MainActivity.class));
             }
         });
         ivPickPhoto.setOnClickListener(new View.OnClickListener() {
