@@ -20,7 +20,7 @@ public class MainPagePresenter {
     private SharedPreferencesHelper sharedPreferences;
 
     public MainPagePresenter(Context context) {
-
+        this.context = context;
     }
 
     public void createToolbarUser(TextView tvNome, TextView tvClasse, TextView tvStatusXp, ImageView ivImagem, ProgressBar pbLevel){
