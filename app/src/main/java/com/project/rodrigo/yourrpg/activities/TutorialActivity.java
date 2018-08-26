@@ -66,4 +66,14 @@ public class TutorialActivity extends AppCompatActivity {
             btnTutorialFinish.setVisibility(View.VISIBLE);
         }
     }
+
+    protected void click(View v) {
+        switch (v.getId()){
+            case R.id.btnTutorialSkip:
+                finish();
+                break;
+            case R.id.btnTutorialFinish:
+                finish();
+        }
+    }
 }

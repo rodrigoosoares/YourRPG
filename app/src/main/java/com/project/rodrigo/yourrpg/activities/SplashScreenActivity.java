@@ -19,6 +19,5 @@ public class SplashScreenActivity extends AppCompatActivity {
         //Descomentar o código acima para resetar as SharedPrefs do jogador
         mPresenter = new SplashScreenPresenter(this,this);
         mPresenter.createSplashScreen();
-
     }
 }

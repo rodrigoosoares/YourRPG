@@ -23,12 +23,12 @@ public class MainPagePresenter {
         this.context = context;
     }
 
-    public void createToolbarUser(TextView tvNome, TextView tvClasse, TextView tvStatusXp, ImageView ivImagem, ProgressBar pbLevel){
+    public void createToolbarUser(TextView tvNome, TextView tvClasse, TextView tvNivel, TextView tvStatusXp, ImageView ivImagem, ProgressBar pbLevel){
 
         jogadorPrefs = new SharedPreferencesHelper(context).getUserPrefs();
         tvNome.setText(jogadorPrefs.getNome());
         tvClasse.setText(jogadorPrefs.getClasse());
-
+        tvNivel.setText(String.format("%d", jogadorPrefs.getNivel()));
         ivImagem.setImageBitmap(SharedPreferencesHelper.StringToBitMap(jogadorPrefs.getImagemDoJogador()));
 
         pbLevel.setMax(jogadorPrefs.getProximoNivelXp());

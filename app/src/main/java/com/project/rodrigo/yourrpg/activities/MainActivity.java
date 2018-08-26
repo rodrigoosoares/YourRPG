@@ -1,5 +1,6 @@
 package com.project.rodrigo.yourrpg.activities;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -26,9 +27,12 @@ public class MainActivity extends AppCompatActivity
     private TextView tvNomeJogador;
     private TextView tvClasseJogador;
     private TextView tvStatusXp;
+    private TextView tvNivelJogador;
     private ImageView ivImageJogador;
     private ProgressBar pbAtualJogadorXp;
     private MainPagePresenter mPresenter;
+
+    private Intent navigationIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +46,12 @@ public class MainActivity extends AppCompatActivity
 
         tvNomeJogador = findViewById(R.id.tvNomeJogador);
         tvClasseJogador = findViewById(R.id.tvClasseJogador);
+        tvNivelJogador = findViewById(R.id.tvNivelJogador);
         tvStatusXp = findViewById(R.id.tvStatusXp);
         ivImageJogador = findViewById(R.id.ivImageJogador);
         pbAtualJogadorXp = findViewById(R.id.pbAtualJogadorXp);
 
-        mPresenter.createToolbarUser(tvNomeJogador,tvClasseJogador,tvStatusXp,ivImageJogador,pbAtualJogadorXp);
+        mPresenter.createToolbarUser(tvNomeJogador,tvClasseJogador,tvNivelJogador,tvStatusXp,ivImageJogador,pbAtualJogadorXp);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -100,8 +105,9 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_tutorial) {
+            navigationIntent = new Intent(this, TutorialActivity.class);
+            startActivity(navigationIntent);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

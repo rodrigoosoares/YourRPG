@@ -33,6 +33,7 @@ public class SplashScreenPresenter {
                 @Override
                 public void run() {
                     activity.startActivity(new Intent(context, CriarPersonagemActivity.class));
+                    activity.finish();
                 }
             },2000);
         else
@@ -40,7 +41,9 @@ public class SplashScreenPresenter {
                 @Override
                 public void run() {
                     activity.startActivity(new Intent(context, MainActivity.class));
+                    activity.finish();
                 }
             },2000);
+
     }
 }

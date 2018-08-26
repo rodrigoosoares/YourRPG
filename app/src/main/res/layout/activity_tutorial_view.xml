@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="Pular"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        android:onClick="click"/>
     <Button
         android:id="@+id/btnTutorialFinish"
         android:layout_width="wrap_content"
