@@ -24,7 +24,7 @@ public class CriarPersonagemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_criar_personagem_view);
+        setContentView(R.layout.activity_criar_personagem);
 
         mPresenter = new CriarPersonagemPresenter(this,this);
 

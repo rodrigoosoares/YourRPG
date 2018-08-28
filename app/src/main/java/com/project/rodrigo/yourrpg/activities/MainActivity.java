@@ -1,8 +1,6 @@
 package com.project.rodrigo.yourrpg.activities;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,15 +8,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.project.rodrigo.yourrpg.R;
-import com.project.rodrigo.yourrpg.helpers.SharedPreferencesHelper;
-import com.project.rodrigo.yourrpg.models.Jogador;
 import com.project.rodrigo.yourrpg.presenters.MainPagePresenter;
 
 public class MainActivity extends AppCompatActivity
