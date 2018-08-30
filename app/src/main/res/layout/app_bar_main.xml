@@ -7,6 +7,7 @@
     tools:context=".activities.MainActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/aplMainToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -74,6 +75,9 @@
     </android.support.design.widget.AppBarLayout>
 
     <include
-        layout="@layout/content_main"/>
+        layout="@layout/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aplMainToolbar"/>
 
 </RelativeLayout>

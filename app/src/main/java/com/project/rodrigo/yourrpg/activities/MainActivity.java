@@ -1,20 +1,38 @@
 package com.project.rodrigo.yourrpg.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.project.rodrigo.yourrpg.R;
+import com.project.rodrigo.yourrpg.helpers.DataBaseHelper;
+import com.project.rodrigo.yourrpg.helpers.MissoesListAdapter;
+import com.project.rodrigo.yourrpg.helpers.MissoesListHelper;
+import com.project.rodrigo.yourrpg.models.Missao;
 import com.project.rodrigo.yourrpg.presenters.MainPagePresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,8 +43,10 @@ public class MainActivity extends AppCompatActivity
     private TextView tvNivelJogador;
     private ImageView ivImageJogador;
     private ProgressBar pbAtualJogadorXp;
-    private MainPagePresenter mPresenter;
+    private ListView lista;
+    private List listaMissoes;
 
+    private MainPagePresenter mPresenter;
     private Intent navigationIntent;
 
     @Override
@@ -45,8 +65,15 @@ public class MainActivity extends AppCompatActivity
         tvStatusXp = findViewById(R.id.tvStatusXp);
         ivImageJogador = findViewById(R.id.ivImageJogador);
         pbAtualJogadorXp = findViewById(R.id.pbAtualJogadorXp);
+        lista = findViewById(R.id.lvMainMissoes);
 
         mPresenter.createToolbarUser(tvNomeJogador,tvClasseJogador,tvNivelJogador,tvStatusXp,ivImageJogador,pbAtualJogadorXp);
+
+        //listaMissoes = Missao.getDados(this);
+        ArrayList<MissoesListHelper> arrayList = Missao.getDados(this);
+        MissoesListAdapter missoesListAdapter = new MissoesListAdapter(arrayList, this);
+        lista.setAdapter(missoesListAdapter);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
