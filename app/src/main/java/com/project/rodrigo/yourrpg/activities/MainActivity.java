@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity
     private ImageView ivImageJogador;
     private ProgressBar pbAtualJogadorXp;
     private ListView lista;
-    private List listaMissoes;
 
     private MainPagePresenter mPresenter;
     private Intent navigationIntent;
@@ -68,10 +67,10 @@ public class MainActivity extends AppCompatActivity
         lista = findViewById(R.id.lvMainMissoes);
 
         mPresenter.createToolbarUser(tvNomeJogador,tvClasseJogador,tvNivelJogador,tvStatusXp,ivImageJogador,pbAtualJogadorXp);
-
-        //listaMissoes = Missao.getDados(this);
+        Missao.insertDados(this);
         ArrayList<MissoesListHelper> arrayList = Missao.getDados(this);
-        MissoesListAdapter missoesListAdapter = new MissoesListAdapter(arrayList, this);
+        MissoesListAdapter missoesListAdapter = new MissoesListAdapter(this, arrayList);
+
         lista.setAdapter(missoesListAdapter);
 
 
