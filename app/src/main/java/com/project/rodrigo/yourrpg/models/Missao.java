@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
 import com.project.rodrigo.yourrpg.helpers.DataBaseHelper;
-import com.project.rodrigo.yourrpg.helpers.MissoesListHelper;
+import com.project.rodrigo.yourrpg.helpers.MissoesListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class Missao implements BaseColumns{
 
         long newRowId = db.insert(TABLE_NAME, null, values);
     }
-    public static ArrayList<MissoesListHelper> getDados(Context context){
+    public static ArrayList<MissoesListAdapter.MissoesListHelper> getDados(Context context){
         DataBaseHelper mDbHelper = new DataBaseHelper(context);
 
         SQLiteDatabase writer = mDbHelper.getReadableDatabase();
@@ -78,8 +78,8 @@ public class Missao implements BaseColumns{
                 null,           // don't filter by row groups
                 sortOrder               // The sort order
         );
-        ArrayList<MissoesListHelper> itemIds = new ArrayList<>();
-        MissoesListHelper missoeshelper = new MissoesListHelper();
+        ArrayList<MissoesListAdapter.MissoesListHelper> itemIds = new ArrayList<>();
+        MissoesListAdapter.MissoesListHelper missoeshelper = new MissoesListAdapter.MissoesListHelper();
         while(cursor.moveToNext()) {
             //itemIds.add(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOME)));
             missoeshelper.nomeMissao = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOME));
@@ -119,7 +119,7 @@ public class Missao implements BaseColumns{
                 sortOrder               // The sort order
         );
         ArrayList<String> itemIds = new ArrayList<>();
-        MissoesListHelper missoeshelper = new MissoesListHelper();
+        MissoesListAdapter.MissoesListHelper missoeshelper = new MissoesListAdapter.MissoesListHelper();
         while(cursor.moveToNext()) {
             itemIds.add(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOME)));
         }

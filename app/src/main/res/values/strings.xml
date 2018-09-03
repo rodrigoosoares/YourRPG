@@ -10,7 +10,6 @@
     <!--Tela de criação do personagem-->
     <string name="criacao_personagem_titulo">Criando seu personagem</string>
     <string name="proxima_etapa">Próxima Etapa</string>
-    <string name="iniciar_aventura">Iniciar Aventura</string>
     <!--Slides do tutorial-->
     <string name="slide1_header">Header 1</string>
     <string name="slide2_header">Header 2</string>
@@ -18,6 +17,7 @@
     <string name="slide1_content">Content 1</string>
     <string name="slide2_content">Content 2</string>
     <string name="slide3_content">Content 3</string>
+    <!--Tela principal-->
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
